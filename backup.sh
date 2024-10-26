@@ -4,7 +4,7 @@
 # the only way to get private repos also is to use gh to list them
 # Setup gh auth
 
-EXAMPLE
+# EXAMPLE
 # ./backup.sh <BACKUP-LOCATION>
 # ./backup.sh ~/Documents
 # ./backup.sh "/mnt/id7/GITHUB_BACKUPS"
