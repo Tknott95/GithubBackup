@@ -26,5 +26,7 @@ for temp_repo_name in "${repos_array[@]}"; do
   mkdir -p ./temp/$mini_name
   echo -e "\n  CLONING: $temp_repo_name"
   git clone $temp_repo_name "./temp/$mini_name"
-  mv temp/** $1
+  mv temp/$mini_name $1
 done
+
+rm -rf temp
