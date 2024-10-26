@@ -7,9 +7,10 @@
 EXAMPLE
 # ./backup.sh <BACKUP-LOCATION>
 # ./backup.sh ~/Documents
+# ./backup.sh "/mnt/id7/GITHUB_BACKUPS"
+# ./backup.sh "/run/media/U5B/GITHUB_BACKUPS"
 
 rm -f repos.txt ; touch repos.txt
-
 
 # PUBLIC AND PRIVATE - HTTPS or SSH
 # gh repo list --json url --limit 9999 | jq .[].url >> repos.txt
