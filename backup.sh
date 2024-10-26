@@ -26,10 +26,11 @@ rm -f repos.txt ; touch repos.txt
 # gh repo list --json url --limit 9999 | jq .[].url >> repos.txt
 gh repo list --json sshUrl --limit 9999 | jq .[].sshUrl >> repos.txt
 
-mapfile -t repos_array < repos.txt
+mapfile -t repos_array < <(sed 's/^"\(.*\)"$/\1/;s/^[ \t]*//;s/[ \t]*$//' repos.txt)
+# mapfile -t repos_array < repos.txt
 
 for temp_repo_name in "${repos_array[@]}"; do
   # cd $1
   echo -e "\n  CLONING: $temp_repo_name"
-  git clone $temp_repo_name
+  git clone "$temp_repo_name" $1
 done
