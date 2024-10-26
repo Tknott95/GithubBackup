@@ -18,8 +18,13 @@ gh repo list --json sshUrl --limit 9999 | jq .[].sshUrl >> repos.txt
 
 mapfile -t repos_array < <(sed 's/^"\(.*\)"$/\1/;s/^[ \t]*//;s/[ \t]*$//' repos.txt)
 # sed uses regex to remove " from repos.txt lines as it was breaking the git clone command
+# echo "git@github.com:Tknott95/ModelArchiver.git" | sed 's|.*/||; s|\.git$||'
+# Name extraction
 
 for temp_repo_name in "${repos_array[@]}"; do
+  mini_name=$(echo "$temp_repo_name" | sed 's|.*/||; s|\.git$||')
+  mkdir -p ./temp/$mini_name
   echo -e "\n  CLONING: $temp_repo_name"
-  git clone $temp_repo_name $1
+  git clone $temp_repo_name "./temp/$mini_name"
+  mv temp/** $1
 done
