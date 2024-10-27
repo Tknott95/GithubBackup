@@ -29,4 +29,4 @@ for temp_repo_name in "${repos_array[@]}"; do
   mv temp/$mini_name $1
 done
 
-rm -rf temp
+rm -rf temp repos.txt
