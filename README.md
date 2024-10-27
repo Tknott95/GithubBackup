@@ -1,6 +1,6 @@
 # GithubBackup
 
-#### EXAMPLE
+#### EXAMPLES
 ` ./backup.sh <BACKUP-LOCATION>`
 
 ` ./backup.sh ~/Documents`
